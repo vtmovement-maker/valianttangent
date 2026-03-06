@@ -444,6 +444,7 @@ a {
 .about-image {
     width: 100%;
     height: auto;
+    align-self: start;
     border-radius: 8px;
     border: 1px solid rgba(33, 255, 0, 0.2);
     box-shadow: 20px 20px 0px rgba(33, 255, 0, 0.05);
