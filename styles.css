@@ -163,6 +163,9 @@ a {
     height: auto;
     display: block;
     margin: 0 auto 1rem auto;
+    margin-right: -2rem;
+    /* Visually aligns the circular logo with the button below */
+    background: #000;
     mix-blend-mode: screen;
 }
 
