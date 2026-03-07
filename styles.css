@@ -158,13 +158,12 @@ a {
 }
 
 /* Glitch Effect */
-.glitch {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    position: relative;
-    text-shadow: 0 0 20px rgba(33, 255, 0, 0.3);
-    margin-bottom: 1rem;
+.hero-logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem auto;
+    mix-blend-mode: screen;
 }
 
 .subtitle {
@@ -175,32 +174,6 @@ a {
     text-transform: uppercase;
 }
 
-.glow-orb {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    background: var(--neon-green);
-    filter: blur(150px);
-    opacity: 0.15;
-    border-radius: 50%;
-    z-index: 0;
-    animation: pulse 4s infinite alternate;
-}
-
-@keyframes pulse {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.1;
-    }
-
-    100% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 0.2;
-    }
-}
 
 /* Buttons */
 .hero-actions {
