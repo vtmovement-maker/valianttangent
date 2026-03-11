@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; frame-src https://www.youtube.com; img-src 'self' data:;">
     <meta name="description" content="Valiant Tangent - Official Website. Music and More.">
     <link rel="icon" type="image/png" href="assets/logo/vt%20logo%20tm.png">
     <title>Valiant Tangent | Official Site</title>
@@ -66,13 +68,15 @@
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/no8m3KDPpgo"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen class="track-artwork" style="border: none;"></iframe>
+                        allowfullscreen class="track-artwork" style="border: none;" loading="lazy"
+                        sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
                     <div class="track-info">
                         <h3>Its Mad</h3>
                         <p>Single</p>
                         <div class="streaming-links">
                             <a href="https://youtu.be/no8m3KDPpgo?si=0gtFElSYRghArDoX" target="_blank"
-                                class="stream-btn" style="border-left-color: #ff0000; box-shadow: none;">Watch on
+                                rel="noopener noreferrer" class="stream-btn"
+                                style="border-left-color: #ff0000; box-shadow: none;">Watch on
                                 YouTube</a>
                         </div>
                     </div>
@@ -82,17 +86,21 @@
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/CssNAxdD9u0"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen class="track-artwork" style="border: none;"></iframe>
+                        allowfullscreen class="track-artwork" style="border: none;" loading="lazy"
+                        sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
                     <div class="track-info">
                         <h3>System Change</h3>
                         <p>Single</p>
                         <div class="streaming-links">
                             <a href="https://open.spotify.com/track/1rzNqTkoUpcRrhdPcKFRBx?si=c194705aca584c69"
-                                target="_blank" class="stream-btn" style="border-left-color: #1DB954;">Spotify</a>
+                                target="_blank" rel="noopener noreferrer" class="stream-btn"
+                                style="border-left-color: #1DB954;">Spotify</a>
                             <a href="https://music.apple.com/gb/album/system-change-single/1547397218" target="_blank"
-                                class="stream-btn" style="border-left-color: #fa243c;">Apple Music</a>
+                                rel="noopener noreferrer" class="stream-btn" style="border-left-color: #fa243c;">Apple
+                                Music</a>
                             <a href="https://youtu.be/CssNAxdD9u0?si=PB9GSC-4WKs2Z0dj" target="_blank"
-                                class="stream-btn" style="border-left-color: #ff0000;">Watch on YouTube</a>
+                                rel="noopener noreferrer" class="stream-btn" style="border-left-color: #ff0000;">Watch
+                                on YouTube</a>
                         </div>
                     </div>
                 </div>
