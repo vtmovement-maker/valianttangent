@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - sectionHeight / 3)) {
+            // Add a small offset so smaller sections at the bottom of the page trigger correctly
+            if (scrollY >= (sectionTop - sectionHeight / 2 - 100)) {
                 current = section.getAttribute('id');
             }
         });

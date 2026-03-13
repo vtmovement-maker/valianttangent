@@ -601,21 +601,22 @@ a {
 
 .form-label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
     letter-spacing: 1px;
 }
 
 .form-control {
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--text-primary);
-    padding: 1rem;
+    padding: 1.2rem;
     border-radius: 4px;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: var(--transition);
 }
 
@@ -627,7 +628,7 @@ a {
 
 textarea.form-control {
     resize: vertical;
-    min-height: 150px;
+    min-height: 200px;
 }
 
 .cf-turnstile-wrapper {
@@ -672,7 +673,7 @@ textarea.form-control {
     width: 100%;
     margin-top: 1rem;
     padding: 1.2rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .form-message {
