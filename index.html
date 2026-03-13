@@ -26,6 +26,7 @@
             <ul class="nav-links">
                 <li><a href="#music">Music</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#collaborate">Connect</a></li>
             </ul>
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <span></span>
@@ -127,6 +128,55 @@
         </div>
     </section>
 
+    <section id="collaborate" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Connect / Collaborate</h2>
+            <div class="fade-in">
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contactForm">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="323d9ad6-5705-4150-ac9c-5088ad826d35">
+                    
+                    <!-- Subject formatting -->
+                    <input type="hidden" name="subject" value="New Collaboration/Inquiry from ValiantTangent.com">
+                    
+                    <!-- Form redirect (optional, handles it via JS below instead for a smoother experience) -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name (Optional)</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="What should we call you?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email (Optional - Required for reply)</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Where can we reach you?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message (Required)</label>
+                        <textarea name="message" id="message" class="form-control" placeholder="Share your thoughts, ideas, or booking inquiries..." required></textarea>
+                    </div>
+
+                    <div class="consent-group">
+                        <input type="checkbox" id="consent" name="consent" class="consent-checkbox" required>
+                        <label for="consent" class="consent-label">
+                            I agree to the <a href="privacy.html" class="consent-link" target="_blank">Privacy Policy</a> and consent to being contacted if I provide an email address.
+                        </label>
+                    </div>
+
+                    <!-- Cloudflare Turnstile Widget -->
+                    <div class="cf-turnstile-wrapper">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAACqXeAPC3N-N6c_v" data-theme="dark"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+                    
+                    <div id="form-result" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-brand">
@@ -137,6 +187,58 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script>
+        const form = document.getElementById('contactForm');
+        const result = document.getElementById('form-result');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            result.innerHTML = "Sending...";
+            result.className = "form-message"; // Reset class
+            result.style.display = "block";
+
+            fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        result.innerHTML = "Message sent successfully! Thank you for reaching out.";
+                        result.className = "form-message success";
+                        form.reset();
+                    } else {
+                        console.log(response);
+                        result.innerHTML = json.message || "Something went wrong. Please try again.";
+                        result.className = "form-message error";
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    result.innerHTML = "Something went wrong! Please check your connection and try again.";
+                    result.className = "form-message error";
+                })
+                .then(function() {
+                    // Reset Turnstile token
+                    if(typeof turnstile !== 'undefined') {
+                        turnstile.reset();
+                    }
+                    setTimeout(() => {
+                        result.style.display = "none";
+                    }, 5000);
+                });
+        });
+    </script>
 </body>
 
 </html>
