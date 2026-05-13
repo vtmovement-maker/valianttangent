@@ -14,6 +14,7 @@ import math
 import random
 import csv
 import os
+import asyncio
 from dataclasses import dataclass
 from typing import List, Dict, Optional, Any
 
@@ -677,7 +678,7 @@ def load_leaderboard() -> list:
 # -------------------------------------------------------------------------------------
 # SECTION 10: MAIN GAME LOOP
 # -------------------------------------------------------------------------------------
-def main():
+async def main():
     game = GameState()
     running = True
     fullscreen = False
@@ -685,6 +686,7 @@ def main():
     play_menu_music()
 
     while running:
+        await asyncio.sleep(0)
         dt = clock.tick(FPS) / 1000.0
         current_width, current_height = screen.get_size()
         
@@ -774,4 +776,4 @@ def main():
 # SECTION 11: RUNNING THE GAME
 # -------------------------------------------------------------------------------------
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
