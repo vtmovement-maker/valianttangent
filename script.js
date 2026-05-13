@@ -73,4 +73,43 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(element => {
         appearOnScroll.observe(element);
     });
+
+    // Easter Egg: POOP code
+    let secretCode = ['p', 'o', 'o', 'p'];
+    let codeIndex = 0;
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === secretCode[codeIndex]) {
+            codeIndex++;
+            if (codeIndex === secretCode.length) {
+                // Trigger Easter Egg
+                triggerEasterEgg();
+                codeIndex = 0;
+            }
+        } else {
+            codeIndex = 0;
+            // Check if the user started typing 'p' again
+            if (e.key.toLowerCase() === secretCode[0]) {
+                codeIndex = 1;
+            }
+        }
+    });
+
+    function triggerEasterEgg() {
+        const modal = document.getElementById('easter-egg-modal');
+        if (modal) {
+            modal.style.display = 'flex';
+        }
+    }
+
+    // Close Easter Egg modal
+    const closeBtn = document.getElementById('close-game');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            const modal = document.getElementById('easter-egg-modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
 });
