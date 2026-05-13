@@ -63,12 +63,21 @@
         </div>
     </nav>
 
-    <header id="home" class="hero fade-in">
-        <div class="hero-content">
-            <h1 class="glitch" data-text="VALIANT TANGENT">VALIANT TANGENT</h1>
-            <p class="subtitle">The sound of the new era.</p>
+    <header id="home" class="hero fade-in" style="height: auto; min-height: 100vh; padding-top: 120px; padding-bottom: 40px;">
+        <div class="hero-content" style="width: 100%; max-width: 900px; margin: 0 auto;">
+            <h1 class="glitch" data-text="VALIANT TANGENT" style="margin-bottom: 0.5rem; font-size: clamp(2rem, 6vw, 4.5rem);">VALIANT TANGENT</h1>
+            <p class="subtitle" style="margin-bottom: 1.5rem;">The sound of the new era.</p>
+            
+            <div style="margin: 0 auto 2rem auto; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <iframe src="https://www.youtube.com/embed/DWKp-b79VEg?si=rXfluc6-5OVzlJ7m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+            </div>
+
             <div class="hero-actions">
-                <a href="#music" class="btn btn-primary">Listen Now</a>
+                <a href="#music" class="scroll-arrow" aria-label="More content">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                    </svg>
+                </a>
             </div>
         </div>
         <div class="glow-orb"></div>
