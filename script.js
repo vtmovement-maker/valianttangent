@@ -73,6 +73,20 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(element => {
         appearOnScroll.observe(element);
     });
+    // Easter Egg: Poop Emoji Trigger
+    const poopTrigger = document.getElementById('poop-trigger');
+    const modal = document.getElementById('easter-egg-modal');
+    const closeBtn = document.getElementById('close-game');
 
+    if (poopTrigger && modal) {
+        poopTrigger.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+    }
 
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
 });

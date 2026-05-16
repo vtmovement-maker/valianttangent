@@ -277,15 +277,25 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" style="position: relative;">
         <div class="container footer-content">
             <div class="footer-brand">
                 <h2>VALIANT TANGENT</h2>
                 <p>&copy; 2026 Valiant Tangent. All rights reserved.</p>
             </div>
         </div>
+        <div id="poop-trigger" style="position: absolute; bottom: 10px; left: 10px; font-size: 1.5rem; cursor: pointer; opacity: 0.2; transition: opacity 0.3s;" title="Something smells... play a game?">💩</div>
     </footer>
 
+    <!-- Easter Egg Modal -->
+    <div id="easter-egg-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-game">&times;</span>
+            <div id="game-container">
+                <iframe src="assets/build/web/index.html?v=1" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
 
     <script src="script.js"></script>
