@@ -37,14 +37,15 @@ async def custom_site():
 
 
     # unpack filesystem from compressed archive into work dir
+    # Fetching game assets from GitHub Release due to Cloudflare Pages file limits
     if platform.window.location.host.find('.itch.zone')>0:
         import zipfile
-        async with platform.fopen("making.shittypets.for.web.v4.apk", "rb") as archive:
+        async with platform.fopen("https://github.com/vtmovement-maker/valianttangent/releases/download/v1.0.0/making.shittypets.for.web.v4.apk", "rb") as archive:
             with zipfile.ZipFile(archive) as zip_ref:
                 zip_ref.extractall(appdir.as_posix())
     else:
         import tarfile
-        async with platform.fopen("making.shittypets.for.web.v4.tar.gz", "rb") as archive:
+        async with platform.fopen("https://github.com/vtmovement-maker/valianttangent/releases/download/v1.0.0/making.shittypets.for.web.v4.tar.gz", "rb") as archive:
             tar = tarfile.open(fileobj=archive, mode="r:gz")
             tar.extractall(path=appdir.as_posix(), filter='tar')
             tar.close()
